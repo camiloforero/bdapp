@@ -1,0 +1,44 @@
+{% extends 'bam/base.html' %}
+
+{% load staticfiles %}
+{% load bam_tags %}
+
+{% block title %}{{ lc }}{% endblock %}
+{% block page-header  %}  {% endblock %}
+{% block body-class %} {% endblock %}
+
+{% block body_block %}
+{% for area in areas %}
+<table class="{{area}} col-xs-6">
+    <thead>
+        <tr>
+            <td colspan=2>
+                <img src="{% static "bam/img/headers/"|add:area|add:"_header.png" %}"/>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tipo in tipos %}
+        {% with puntos=tipo|add:"_"|add:area %}
+        <tr>
+            <td>{{tipo}}</td>
+            <td>{{puntajes|getattribute:puntos}} COINS</td>
+        </tr>
+        {% endwith %}
+        {% endfor %}
+    </tbody>
+    <thead>
+        <tr>
+            <td>Total</td>
+            <td>{{puntajes|getattribute:area}} COINS</td>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td>Ranking: {{ranking}}</td>
+            <td>CLUSTER</td>
+        </tr>
+    </tfoot>
+</table>
+{% endfor %}
+{% endblock %}

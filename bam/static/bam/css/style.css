@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'sf_slapstick_comic';
+    src: url('/static/bam/fonts/sf_slapstick_comic-webfont.eot');
+    src: url('/static/bam/fonts/sf_slapstick_comic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/bam/fonts/sf_slapstick_comic-webfont.woff2') format('woff2'),
+         url('/static/bam/fonts/sf_slapstick_comic-webfont.woff') format('woff'),
+         url('/static/bam/fonts/sf_slapstick_comic-webfont.ttf') format('truetype'),
+         url('/static/bam/fonts/sf_slapstick_comic-webfont.svg#sf_slapstick_comicregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    font-family: 'sf_slapstick_comic', Verdana, sans-serif;
+}
+
+table {
+    width:400px;
+    text-align: center;
+    font-size: 1.25em;
+}
+tfoot {
+    font-size:1.5em;
+}
+img {
+    width:100%;
+    display:block;
+}
+table.IGCDP thead {
+    background-color: #262873;
+    color: white;
+}
+
+table.IGCDP tbody, table.IGCDP tfoot {
+    background-color: #AFB0C5;
+    color: black;
+}
+table.OGCDP thead {
+    background-color: #7DC03E;
+    color: black;
+}
+
+table.OGCDP tbody, table.OGCDP tfoot {
+    background-color: #BCC9BC;
+    color: black;
+}
+table.IGIP thead {
+    background-color: #E62F28;
+    color: white;
+}
+
+table.IGIP tbody, table.IGIP tfoot {
+    background-color: #ECE8C3;
+    color: black;
+}
+table.OGIP thead {
+    background-color: #595959;
+    color: white;
+}
+
+table.OGIP tbody, table.OGIP tfoot {
+    background-color: #D6D6D6;
+    color: black;
+}
+
+

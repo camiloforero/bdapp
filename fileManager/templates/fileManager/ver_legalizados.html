@@ -1,0 +1,56 @@
+{% extends 'fileManager/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ test }}{% endblock %}
+{% block page-header  %}  {% endblock %}
+{% block body-class %} {% endblock %}
+
+{% block body_block %}
+<table class="table">
+<thead>
+    <tr>
+        <th>Nombre completo</th>
+        <th>Carta 1</th>
+        <th>Carta 2</th>
+        <th>Hoja de vida</th>
+        <th>Seguro internacional</th>
+        <th>ARL</th>
+        <th>EPS</th>
+    </tr>
+</thead>
+{% for trainee in trainees %}
+<tr>
+    <td>{{trainee}}</td>
+    <td><a href="{{trainee.acceptance_note_firmada.url}}">Descargar</a></td>
+    <td><a href="{{trainee.organization_acceptance_note_firmada.url}}">Descargar</a></td>
+    <td>
+        <a href="{{trainee.curriculum_vitae.url}}">Descargar</a>
+    </td>
+    <td>
+    {% if trainee.seguro_internacional %}
+        <a href="{{trainee.seguro_internacional.url}}">Descargar</a>
+    {% else %}
+        No disponible
+    {% endif %}
+    </td>
+    <td>
+    {% if trainee.arl %}
+        <a href="{{trainee.arl.url}}">Descargar</a>
+    {% else %}
+        No disponible
+    {% endif %}
+    </td>
+    <td>
+    {% if trainee.eps %}
+        <a href="{{trainee.visa.eps}}">Descargar</a>
+    {% else %}
+        No disponible
+    {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+
+{% endblock %}

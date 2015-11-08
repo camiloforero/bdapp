@@ -1,0 +1,27 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<p>Los siguientes practicantes ya llenaron el link de confirmación, y sus documentos están listos para ser generados:
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Empresa</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for trainee in trainees %}
+        <tr>
+            <td>{{trainee}}</td>
+            <td>{{trainee.empresa.nombre}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+Para generar sus documentos, haz click en el siguiente botón
+<form action="{% url 'admin:crear_documentos' %}" method="POST">
+    {% csrf_token %}
+    {{ formset }}
+    <button type="submit" class="btn btn-default">Send</button>
+</form>
+</p>
+{% endblock %}

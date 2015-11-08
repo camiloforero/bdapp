@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="author" content="Camilo Forero">
+        <title>{% block title %}Woooooo!{% endblock %}</title>
+        <link rel="stylesheet" href="{% static "bam/css/style.css"%}"/>
+    </head>
+
+    <body class="{% block body-class %}{% endblock %}">
+
+
+
+    <header> 
+        <h1>{% block page-header %} {% endblock %}</h1>
+    </header>
+                <main>
+                    {% block body_block %}<h3>Si estás viendo esto, no estás reemplazando el body_block de manera apropiada</h3>{% endblock %}
+                </main>
+    {% block scripts%}
+    {% endblock %}
+    </body>
+</html>

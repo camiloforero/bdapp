@@ -1,0 +1,15 @@
+{% extends "admin/index.html" %}
+{% load i18n admin_static %}
+{% block content %}
+{{ block.super }}
+<p>
+    <a href="{% url "admin:crear_documentos" %}">Crear memodeals</a>
+</p>
+<p>
+    <a href="{% url "admin:subir_trainees" %}">Subir trainees</a>
+</p>
+<p>
+    <a href="{% url "admin:mostrar_subir_papeles" %}">Subir papeles</a>
+</p>
+{% endblock %}
+

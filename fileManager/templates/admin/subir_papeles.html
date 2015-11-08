@@ -1,0 +1,22 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+{% block content %}
+{{ block.super }}
+<table class="table">
+<thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Empresa</th>
+        <th>Acción</th>
+    </tr>
+</thead>
+{% for trainee in trainee_list%}
+    <tr>
+        <td>{{trainee.full_name}}</td>
+        <td>{{trainee.empresa}}</td>
+        <td><a href="{% url 'admin:subir_papeles' trainee.pk %}">Subir documentos</a></td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}
+

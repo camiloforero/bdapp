@@ -1,0 +1,28 @@
+{% extends 'fileManager/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ test }}{% endblock %}
+{% block page-header  %}  {% endblock %}
+{% block body-class %} {% endblock %}
+
+{% block body_block %}
+<table class="table">
+<thead>
+    <tr>
+        <th>Nombre completo</th>
+        <th>Nacionalidad</th>
+        <th>Hoja de vida</th>
+    </tr>
+</thead>
+{% for trainee in trainees %}
+<tr>
+    <td>{{trainee}}</td>
+    <td>{{trainee.country}}</td>
+    <td><a href="{{trainee.hoja_de_vida.url}}">Descargar</a></td>
+</tr>
+{% endfor %}
+</table>
+
+
+{% endblock %}

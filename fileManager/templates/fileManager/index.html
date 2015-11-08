@@ -1,0 +1,16 @@
+{% extends 'fileManager/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ test }}{% endblock %}
+{% block page-header  %}Portal de administración de AIESEC{% endblock %}
+{% block body-class %} {% endblock %}
+
+{% block body_block %}
+<p><a href="{% url 'fileManager:seleccion' %}">Ver y aprobar aplicantes</a></p>
+<p><a href="{% url 'fileManager:ver_aceptados' %}">Ver practicantes aceptados</a></p>
+<p><a href="{% url 'fileManager:ver_cartas' %}">Ver practicantes con cartas listas para firmar</a></p>
+<p><a href="{% url 'fileManager:ver_legalizados' %}">Ver practicantes legalizados</a></p>
+
+
+{% endblock %}

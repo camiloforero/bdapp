@@ -1,0 +1,35 @@
+{% extends 'admin/base.html' %}
+
+
+{% block content %}
+<p>Los siguientes trainees se subieron exitosamente:</p>
+<ul>
+    {% for exitoso in exitosos %}
+    <li>{{exitoso}}</li>
+    {% endfor %}
+</ul>
+<p>Los siguientes trainees no se pudieron subir porque ya existe otro con el mismo correo electrónico:</p>
+<ul>
+    {% for repetido in repetidos %}
+    <li>{{repetido}}</li>
+    {% endfor %}
+</ul>
+<p>Los siguientes trainees no se pudieron subir porque el link de su hoja de vida está desactualizado:</p>
+<ul>
+    {% for cv in cv_desactualizado %}
+    <li>{{cv}}</li>
+    {% endfor %}
+</ul>
+<p>Los siguientes trainees no se pudieron subir porque no tienen hoja de vida</p>
+<ul>
+    {% for cv in no_cv %}
+    <li>{{cv}}</li>
+    {% endfor %}
+</ul>
+<p>Los siguientes trainees no se pudieron subir por otros errores varios</p>
+<ul>
+    {% for cv in otros %}
+    <li>{{cv}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

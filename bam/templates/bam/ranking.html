@@ -1,0 +1,44 @@
+{% extends 'bam/base.html' %}
+
+{% load bam_tags %}
+{% load staticfiles %}
+
+{% block title %}{{ area }}{% endblock %}
+{% block page-header  %}  {% endblock %}
+{% block body-class %}{{area}}{% endblock %}
+
+{% block body_block %}
+<table class={{area}}>
+    <thead>
+        <tr>
+            <td colspan=2>
+                <img src="{% static "bam/img/headers/"|add:area|add:"_header.png" %}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>ENTITY</td>
+            <td># OF COINS</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for puntaje in puntajes %}
+    <tr>
+        <td style="text-align: left;">
+            {{ puntaje.lc }}  
+        </td> 
+        <td>
+            {{puntaje|getattribute:area}} COINS
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan=2>WEEK #{{semana}}</td>
+        </tr>
+    </tfoot>
+</table>
+
+
+
+{% endblock %}

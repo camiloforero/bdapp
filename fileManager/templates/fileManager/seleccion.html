@@ -1,0 +1,45 @@
+{% extends 'fileManager/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ test }}{% endblock %}
+{% block page-header  %}  {% endblock %}
+{% block body-class %} {% endblock %}
+
+{% block body_block %}
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+{% regroup trainees by grupo as trainees_list %}
+{% for dia in trainees_list %}
+{% with dia.grouper|cut:" " as dayId %}
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading{{dayId}}">
+        <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{dayId}}" aria-expanded="false" aria-controls="collapse{{dayId}}">{{dia.grouper}}</a>
+        </h4>
+    </div>
+    <div id="collapse{{dayId}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{dayId}}">
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Nombre completo</th>
+            <th>CV</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    {% for trainee in dia.list %}
+        <tr>
+            <td>{{ trainee }}</td>
+            <td><a href="{{ trainee.curriculum_vitae.url}}">Descargar</a></td>
+            <td><a href="{% url 'fileManager:seleccionar' trainee=trainee.pk aprobado='si'%}">Aceptar</a> | <a href="{% url 'fileManager:seleccionar' trainee=trainee.pk aprobado='no'%}">Rechazar</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+        
+    </div>
+</div>
+{% endwith %}
+{% endfor %}
+</div>
+
+
+{% endblock %}
