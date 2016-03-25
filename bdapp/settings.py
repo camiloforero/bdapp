@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'widget_tweaks',
     'django_countries',
     'datetimewidget',
+    'mc_analytics',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,7 +87,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'bdapp',
         'HOST': 'localhost',
-        'USER': 'camilo',
+        'USER': 'ubuntu',
+        'PASSWORD': 'aieseccolombia2015',
     }
 }
 
@@ -113,15 +115,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_URL = '/bdapp/login'
-LOGIN_REDIRECT_URL = '/bdapp/'
+LOGIN_URL = '/apps/bd/login/'
+LOGIN_REDIRECT_URL = '/apps/bd/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = '/var/www/html/static/'
-WEBODT_TEMPLATE_PATH ='/var/www/html/media/webodt/'
+STATIC_URL = '/bdapp/static/'
+STATIC_ROOT = '/var/www/html/bdapp/static/'
+WEBODT_TEMPLATE_PATH ='/var/www/html/bdapp/media/webodt/'
 
 MEDIA_URL = '/bdapp/media/'
-MEDIA_ROOT = '/var/www/html/media/'
+MEDIA_ROOT = '/var/www/html/bdapp/media/'
+
+# Custom settings
+BDAPP_ROOT_URL = "http://ec2-52-24-60-163.us-west-2.compute.amazonaws.com"

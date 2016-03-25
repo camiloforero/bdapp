@@ -1,6 +1,6 @@
 Hello, {{full_name}}!
 It is a pleasure for us to let you know that you have been officially accepted by {{empresa}}. It is very important for them for you to be here as soon as possible, more precisely before {{start_date}}.
-We await for your confirmation, with your scanned passport, to get started with the whole process, so you can be here on the agreed date. For that, please fill out this form: http://45.55.8.252/{% url 'fileManager:confirmation' %}. Your personal code is {{code}}. 
+We await for your confirmation, with your scanned passport, to get started with the whole process, so you can be here on the agreed date. For that, please fill out this form: {{root_url}}{% url 'fileManager:confirmation' %}. Your personal code is {{code}}. 
 Furthermore, if you haven't done so already, please apply to the following opportunity in our platform: https://internships.aiesec.org/#/professional/{{tn_id}}
 
 If you have any doubts please reply to this same email; the next step will be the visa application process.

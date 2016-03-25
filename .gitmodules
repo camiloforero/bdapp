@@ -1,0 +1,6 @@
+[submodule "django_expa"]
+	path = django_expa
+	url = https://github.com/camiloforero/django_expa.git
+[submodule "mc_analytics"]
+	path = mc_analytics
+	url = https://github.com/camiloforero/mc_analytics.git

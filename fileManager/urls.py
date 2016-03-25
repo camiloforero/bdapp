@@ -9,10 +9,10 @@ urlpatterns = [
     url(
         '^logout/$',
         'django.contrib.auth.views.logout',
-        {'next_page': '/app/'},
+        {'next_page': '/apps/bd/'},
         name='logout' ),
     url('^password_change/$', 'django.contrib.auth.views.password_change',
-        {'post_change_redirect':'/app/', 'template_name': 'scheduler/change_password.html',}, name='password_change'),
+        {'post_change_redirect':'/apps/bd', 'template_name': 'scheduler/change_password.html',}, name='password_change'),
     url(r'^seleccion/$', views.seleccion, name='seleccion'),
     url(r'^ver_aceptados/$', views.ver_aceptados, name='ver_aceptados'),
     url(r'^ver_cartas/$', views.ver_cartas, name='ver_cartas'),

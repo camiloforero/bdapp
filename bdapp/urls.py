@@ -17,7 +17,7 @@ from django.conf.urls import include, url
 from fileManager.admin import admin_site
 
 urlpatterns = [
-    url(r'^', include('fileManager.urls', namespace='fileManager')),
+    url(r'^bd/', include('fileManager.urls', namespace='fileManager')),
     url(r'^bam/', include('bam.urls', namespace='bam')),
     url(r'^admin/', include(admin_site.urls)),
 ]

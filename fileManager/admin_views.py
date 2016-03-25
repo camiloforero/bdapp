@@ -60,13 +60,13 @@ def crear_documentos(request):
                 }
                 datos["num_semanas"] = duracion.days/7
                 translation.activate('es')
-                locale.setlocale(locale.LC_TIME, "es_CO")
+                locale.setlocale(locale.LC_TIME, "es_CO.utf8")
                 datos["pais"] = unicode(trainee.country.name).encode('utf-8')
                 datos["fecha"]= today.strftime("%d de %B del %Y").encode('utf-8')
                 datos["fecha_inicio_espanol"]= inicio.strftime("%d de %B del %Y").encode('utf-8')
                 datos["fecha_fin_espanol"]= fin.strftime("%d de %B del %Y").encode('utf-8')
                 datos["genero"]= trainee.genero
-                locale.setlocale(locale.LC_TIME, "en_US")
+                locale.setlocale(locale.LC_TIME, "en_US.utf8")
                 translation.activate('en')
                 datos["country"]= unicode(trainee.country.name).encode('utf-8')
                 datos["date"]= today.strftime("%d of %B, %Y").encode('utf-8')
@@ -86,6 +86,7 @@ def crear_documentos(request):
                 pdf = aux.generatePdf("certificado_cuenta_bancaria.odt", datos)
                 pdfFile = UploadedFile(pdf)
                 trainee.certificado_cuenta_bancaria.save("certificado_cuenta_bancaria_%s.pdf" % trainee.tn_id, pdfFile)
+		trainee.documentos_hechos = True
                 trainee.save()
         context = {'mensaje': "Se han generado los memodeals exitosamente"}
         return TemplateResponse(request, "admin/fileManager/crear_memodeals_done.html", context)

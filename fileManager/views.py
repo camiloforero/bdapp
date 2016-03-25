@@ -80,6 +80,7 @@ def seleccionar(request, trainee, aprobado):
                 "tn_id": oTrainee.empresa.tn_id,
                 "full_name": str(oTrainee),
                 "start_date": oTrainee.fecha_inicio_practica.strftime("%d of %B"),
+		"root_url": settings.BDAPP_ROOT_URL,
             }
             mensaje = render_to_string('fileManager/emails/accepted.txt', datos)
             send_mail('You have been accepted', mensaje, 'maria.cubillos@aiesec.net', [oTrainee.user.email], fail_silently=False)
@@ -135,6 +136,8 @@ def subir_cartas(request, trainee):
         oTrainee = Trainee.objects.get(pk=trainee)
         form = CartasForm(request.POST, request.FILES, instance=oTrainee)
         if form.is_valid():
+	    import os
+	    lang = os.environ['LANG']
             form.save()
             return HttpResponseRedirect(reverse("fileManager:ver_cartas"))
         else:
